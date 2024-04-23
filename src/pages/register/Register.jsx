@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
-import '../../index.less'; // Import the LESS file
+import './register.less';
+
 
 const Register = () => {
     const [user, setUser] = useState({

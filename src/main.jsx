@@ -8,9 +8,6 @@ import Register from "./pages/register/Register";
 import Login from  "./pages/login/Login";
 
 
-
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,6 +45,10 @@ const router = createBrowserRouter([
     path: "login",
     element: <Login />,
   },
+  {
+    path: "/login/forgot_password",
+    element: <div>Nu avem ce face:)</div>,
+  },
   
   {
     path: "404",
@@ -57,6 +58,7 @@ const router = createBrowserRouter([
     path: "*",
     element: <div>404</div>,
   },
+
 ]);
 
 
