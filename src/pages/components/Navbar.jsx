@@ -21,6 +21,7 @@ const Navbar = () => {
         <li className="menu-item">
           <Link to="/account">My Account</Link>
           <ol className="sub-menu">
+          <li className="menu-item"><Link to="/register/Register">Register</Link></li>
             <li className="menu-item"><Link to="/account/profile">Profile</Link></li>
             <li className="menu-item"><Link to="/account/orders">Orders</Link></li>
             <li className="menu-item"><Link to="/account/settings">Settings</Link></li>

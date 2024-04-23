@@ -35,6 +35,10 @@ const router = createBrowserRouter([
     element: <div>if you re logged in , otherwise create account</div>,
   },
   {
+    path: "account",
+    element: <div>if you re logged in , otherwise create account</div>,
+  },
+  {
     path: "404",
     element: <div>404</div>,
   },

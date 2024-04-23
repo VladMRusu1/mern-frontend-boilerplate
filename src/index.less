@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 @GAP:15px;
 @WHITE:#FBFBFB;
-@BACKGROUND:#45494E;
+@BACKGROUND:#00000033;
+@BLACK: #333333;
 @COLOR1:#FDA085;@COLOR1g:#F6D365;
 @COLOR2:#BFF098;@COLOR2g:#6FD6FF;
 @COLOR3:#EA8D8D;@COLOR3g:#A890FE;
@@ -14,7 +15,7 @@
 
 :root{
   --accent-color:@BACKGROUND;
-  --gradient-color:@WHITE;
+  --gradient-color:@BLACK;
 }
 
 a:focus{
@@ -27,7 +28,7 @@ a:focus{
 
 a:after{
   content:"";
-  background:@WHITE;
+  background:@BLACK;
   position:absolute;
   bottom:5px;
   left:@GAP;
@@ -42,13 +43,18 @@ body {
     font-family: "Varela Round", Nunito, Montserrat, sans-serif;
     margin: 0;
     padding: 0;
-    padding-top: 50px; /* Add padding to body to prevent overlap by fixed navbar */
+    padding-top: 0px; /* Add padding to body to prevent overlap by fixed navbar */
     text-transform: capitalize;
+    background-color: #00000033;
+    color:#00000033
   }
 
 .menu{
-  margin:@GAP;
-  margin-top:0;
+  position:fixed;  /* Use absolute or fixed depending on context */
+  top: -43%;              /* Aligns the element at the top of the parent/container */
+  left: 50%;           /* Start at 50% from the left of the parent/container */
+  transform: translateX(-50%); /* Shifts the element left by 50% of its own width */
+  margin-top: 0px;     /* Ensures no additional space is added to the top */
   > ol{
     list-style:none;
     margin:@GAP * 2 0;
