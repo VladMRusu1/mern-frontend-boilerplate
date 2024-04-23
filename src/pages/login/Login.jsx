@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import axios from 'axios';
-import {useHistory} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 const Login = ({setLoginUser}) => {
-const history = useHistory()
+const history = useNavigate()
     const [user,setUser] = useState({
         name:"",
         password: ""
@@ -16,10 +16,10 @@ const history = useHistory()
     }
 
     const login =()=>{
-        axios.post("http://localhost:6969/Login",user)
+        axios.post("http://localhost:5173/Login",user)
         .then(res=>{alert(res.data.message)
         setLoginUser(res.data.user)
-    history.push("/")})
+    history("/")})
     }
     return (
         <>
@@ -66,7 +66,7 @@ const history = useHistory()
                 </form>
             </div>
             <div class="flex items-center justify-center mt-6">
-                <a href="#" target="_blank" class="inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white"  onClick={history.push("/Register")}>
+                <a href="#" target="_blank" class="inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white"  onClick={history("/Register")}>
                     <span class="ml-2">
                         You don't have an account?
                     </span>

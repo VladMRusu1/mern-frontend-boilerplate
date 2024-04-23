@@ -5,6 +5,7 @@ import "./index.css";
 import "./index.less";
 import Home from "./pages/home/home";
 import Register from "./pages/register/Register";
+import Login from  "./pages/login/Login";
 
 
 
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
   },
   {
     path: "login",
-    element: <div>dada</div>
+    element: <Login />,
   },
   
   {
