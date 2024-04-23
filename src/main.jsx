@@ -4,6 +4,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import "./index.less";
 import Home from "./pages/home/home";
+import Register from "./pages/register/Register";
+
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -28,16 +33,21 @@ const router = createBrowserRouter([
   },
   {
     path: "support",
-    element: <div>fuck no</div>,
+    element: <div>SUPPORT</div>,
   },
   {
     path: "account",
     element: <div>if you re logged in , otherwise create account</div>,
   },
   {
-    path: "account",
-    element: <div>if you re logged in , otherwise create account</div>,
+    path: "account/register",
+    element: <Register />,
   },
+  {
+    path: "login",
+    element: <div>dada</div>
+  },
+  
   {
     path: "404",
     element: <div>404</div>,

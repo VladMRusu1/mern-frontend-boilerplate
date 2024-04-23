@@ -244,3 +244,79 @@ body {
     }
   }
 }
+
+
+@background: #00000033;
+@white: #FBFBFB;
+@gradient-color: #333333;
+@accent-color: #FDA085;
+
+/* Register Page Styles */
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.register-heading {
+  font-size: 24px;
+  color: @gradient-color;
+  margin-bottom: 20px;
+}
+
+.register-form {
+  background-color: @white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 400px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+.input-field {
+  margin-bottom: 20px;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.btn-register {
+  background-color: @accent-color;
+  color: @white;
+  border: none;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-register:hover {
+  background-color: darken(@accent-color, 10%);
+}
+
+.sign-in-link {
+  font-size: 14px;
+  color: #510000; /* Change the color to black */
+}
+
+.sign-in-link a {
+  color: #510000; /* Change the color to black */
+  text-decoration: none;
+}
+
+.sign-in-link a:hover {
+  text-decoration: underline;
+}
