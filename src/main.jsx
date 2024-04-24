@@ -2,7 +2,6 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import "./index.less";
 import Home from "./pages/home/home";
 import Register from "./pages/register/Register";
 import Login from  "./pages/login/Login";

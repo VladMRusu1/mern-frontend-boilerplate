@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom'; // Import Link from react-router-dom
-import './login.less'; // Import the LESS file
+import { useNavigate, Link } from 'react-router-dom';
+import './login.less';
 
 const Login = ({ setLoginUser }) => {
     const history = useNavigate();
@@ -20,12 +20,14 @@ const Login = ({ setLoginUser }) => {
 
     const login = (e) => {
         e.preventDefault();
-        const { email, password } = user;
+        //const { email, password } = user;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
         if (!email || !password) {
             alert("Please fill in both email and password fields.");
             return;
         }
-        axios.post("http://localhost:5173/Login", user)
+        axios.post("http://localhost:5173/Login", {email, password})
             .then(res => {
                 alert(res.data.message);
                 setLoginUser(res.data.user);
@@ -38,15 +40,15 @@ const Login = ({ setLoginUser }) => {
         <div className="login-container">
             <div className="login-heading">Login To Your Account</div>
             <div className="login-form">
-                <form autoComplete="off">
+                <form autoComplete="off" onSubmit={login}>
                     <div className="input-field">
-                        <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Your email" />
+                        <input type="email" name="email" value={user.email} onChange={handleChange} placeholder="Your email" />
                     </div>
                     <div className="input-field">
                         <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Your password" />
                     </div>
                     <div className="input-field">
-                        <button type="submit" className="btn-login" onClick={login}>Login</button>
+                        <button type="submit" className="btn-login">Login</button>
                     </div>
                 </form>
             </div>
