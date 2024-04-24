@@ -29,7 +29,6 @@ const Navbar = () => {
             <li className="menu-item"><Link to="/account/help">Help</Link></li>
           </ol>
         </li>
-        <li className="menu-item"><Link to="/usershop" className="nav-logo">My Shop</Link></li>
       </ol>
     </nav>
   );
