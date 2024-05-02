@@ -8,6 +8,12 @@
 @COLOR3:#EA8D8D;@COLOR3g:#A890FE;
 @COLOR4:#D8B5FF;@COLOR4g:#1EAE98;
 @COLOR5:#C6EA8D;@COLOR5g:#FE90AF;
+@COLOR6: #ff758c; @COLOR6g: #ff7eb3;
+@COLOR7: #868f96; @COLOR7g: #596164;
+@COLOR8: #c79081; @COLOR8g: #dfa579;
+@COLOR9: #8baaaa; @COLOR9g: #ae8b9c;
+@COLOR10: #60b347; @COLOR10g: #d2ce56;
+@COLOR11: #4ca1af; @COLOR11g: #c4e0e5;
 
 *{
   box-sizing:border-box;
@@ -43,49 +49,41 @@ body {
     font-family: "Varela Round", Nunito, Montserrat, sans-serif;
     margin: 0;
     padding: 0;
-    padding-top: 0px; /* Add padding to body to prevent overlap by fixed navbar */
+    padding-top: 0px; 
     text-transform: capitalize;
     background-color: #00000033;
     color:#00000033
   }
 
 .menu{
-  position:fixed;  /* Use absolute or fixed depending on context */
-  top: -43%;              /* Aligns the element at the top of the parent/container */
-  left: 50%;           /* Start at 50% from the left of the parent/container */
-  transform: translateX(-50%); /* Shifts the element left by 50% of its own width */
-  margin-top: 0px;     /* Ensures no additional space is added to the top */
+  position:fixed;  
+  top: -35%;              
+  left: 50%;    
+  transform: translateX(-50%); 
+  margin-top: 0px;    
   > ol{
     list-style:none;
     margin:@GAP * 2 0;
     padding:0;
     
     > li{
+      width: calc(100% / 11);
       background:darken(@WHITE,75%);
       border-left:5px solid var(--gradient-color);
       margin-bottom:1px;
       position:relative;
       transition:.5s;
-      &:nth-child(1){
-        --accent-color:@COLOR1;
-        --gradient-color:@COLOR1g;
-      }
-      &:nth-child(2){
-        --accent-color:@COLOR2;
-        --gradient-color:@COLOR2g;
-      }
-      &:nth-child(3){
-        --accent-color:@COLOR3;
-        --gradient-color:@COLOR3g;
-      }
-      &:nth-child(4){
-        --accent-color:@COLOR4;
-        --gradient-color:@COLOR4g;
-      }
-      &:nth-child(5){
-        --accent-color:@COLOR5;
-        --gradient-color:@COLOR5g;
-      }
+      &:nth-child(1) { --accent-color: @COLOR1; --gradient-color: @COLOR1g; }
+    &:nth-child(2) { --accent-color: @COLOR2; --gradient-color: @COLOR2g; }
+    &:nth-child(3) { --accent-color: @COLOR3; --gradient-color: @COLOR3g; }
+    &:nth-child(4) { --accent-color: @COLOR4; --gradient-color: @COLOR4g; }
+    &:nth-child(5) { --accent-color: @COLOR5; --gradient-color: @COLOR5g; }
+    &:nth-child(6) { --accent-color: @COLOR6; --gradient-color: @COLOR6g; }
+    &:nth-child(7) { --accent-color: @COLOR7; --gradient-color: @COLOR7g; }
+    &:nth-child(8) { --accent-color: @COLOR8; --gradient-color: @COLOR8g; }
+    &:nth-child(9) { --accent-color: @COLOR9; --gradient-color: @COLOR9g; }
+    &:nth-child(10) { --accent-color: @COLOR10; --gradient-color: @COLOR10g; }
+    &:nth-child(11) { --accent-color: @COLOR11; --gradient-color: @COLOR11g; }
       a{
         color:@WHITE;
         display:block;
@@ -185,7 +183,7 @@ body {
     margin-top:40vh;
   }
   .menu > ol{
-    display:block;
+    display:flex;
     max-width:none;
     text-align:center;
     > li{
@@ -194,7 +192,7 @@ body {
       display:inline-block;
       margin-left:-5px;
       vertical-align:top;
-      width:120px;
+      width: calc(100% / 11);
       &:hover,&:focus,&:focus-within{
         &:after{
           background:linear-gradient(to bottom, var(--accent-color), var(--gradient-color));
