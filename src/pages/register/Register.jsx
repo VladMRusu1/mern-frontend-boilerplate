@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import axios from "axios";
+import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Button from "../../components/button/Button";
 import './register.less';
-
 
 const Register = () => {
     const [user, setUser] = useState({
@@ -22,31 +22,32 @@ const Register = () => {
     const register = (e) => {
         e.preventDefault();
         const { name, email, password } = user;
-        if (name && email && password) {
-            axios.post("http://localhost:6969/Register", user)
-                .then(res => console.log(res))
-                .catch(error => console.error(error));
-        } else {
-            alert("Invalid input");
+        console.log(e.target.name.value);
+        if (!name || !email || !password) {
+            alert("Please fill in all fields.");
+            return;
         }
+        axios.post("http://localhost:6969/Register", user)
+            .then(res => console.log(res))
+            .catch(error => console.error(error));
     };
 
     return (
         <div className="register-container">
             <div className="register-heading">Create a new account</div>
             <div className="register-form">
-                <form>
+                <form autoComplete="off" onSubmit={register}>
                     <div className="input-field">
-                        <input type="text" name="name" value={user.name} onChange={handleChange} placeholder="FullName"/>
+                        <input type="text" name="name" value={user.name} onChange={handleChange} placeholder="FullName" />
                     </div>
                     <div className="input-field">
-                        <input type="text" name="email" value={user.email} onChange={handleChange} placeholder="Email"/>
+                        <input type="email" name="email" value={user.email} onChange={handleChange} placeholder="Email" />
                     </div>
                     <div className="input-field">
-                        <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Password"/>
+                        <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Password" />
                     </div>
                     <div className="button-container">
-                        <button className="btn-register" onClick={register}>Register</button>
+                        <Button>Register</Button>
                     </div>
                 </form>
             </div>

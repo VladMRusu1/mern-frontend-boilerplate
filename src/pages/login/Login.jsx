@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import Button from "../../components/button/Button";
 import './login.less';
 
 const Login = ({ setLoginUser }) => {
@@ -20,14 +21,14 @@ const Login = ({ setLoginUser }) => {
 
     const login = (e) => {
         e.preventDefault();
-        //const { email, password } = user;
         const email = e.target.email.value;
         const password = e.target.password.value;
+        console.log(email, password);
         if (!email || !password) {
             alert("Please fill in both email and password fields.");
             return;
         }
-        axios.post("http://localhost:5173/Login", {email, password})
+        axios.post("http://localhost:5173/Login", { email, password })
             .then(res => {
                 alert(res.data.message);
                 setLoginUser(res.data.user);
@@ -48,7 +49,7 @@ const Login = ({ setLoginUser }) => {
                         <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Your password" />
                     </div>
                     <div className="input-field">
-                        <button type="submit" className="btn-login">Login</button>
+                        <Button>Login</Button>
                     </div>
                 </form>
             </div>
