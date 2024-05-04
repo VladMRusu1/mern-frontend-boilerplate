@@ -3,6 +3,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Button from "../../components/button/Button";
 import './register.less';
+import EmailInput from "../../components/InputFields/EmailInput/EmailInput";
+import PasswordInput from "../../components/InputFields/PasswordInput/PasswordInput";
+import UsernameInput from '../../components/InputFields/UserNameInput/UserNameInput';
+import '../../components/InputFields/EmailInput/EmailInput.less';
 
 const Register = () => {
     const [user, setUser] = useState({
@@ -22,7 +26,6 @@ const Register = () => {
     const register = (e) => {
         e.preventDefault();
         const { name, email, password } = user;
-        console.log(e.target.name.value);
         if (!name || !email || !password) {
             alert("Please fill in all fields.");
             return;
@@ -37,15 +40,9 @@ const Register = () => {
             <div className="register-heading">Create a new account</div>
             <div className="register-form">
                 <form autoComplete="off" onSubmit={register}>
-                    <div className="input-field">
-                        <input type="text" name="name" value={user.name} onChange={handleChange} placeholder="FullName" />
-                    </div>
-                    <div className="input-field">
-                        <input type="email" name="email" value={user.email} onChange={handleChange} placeholder="Email" />
-                    </div>
-                    <div className="input-field">
-                        <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Password" />
-                    </div>
+                    <UsernameInput value={user.name} handleChange={handleChange} />
+                    <EmailInput value={user.email} handleChange={handleChange} />
+                    <PasswordInput value={user.password} handleChange={handleChange} />
                     <div className="button-container">
                         <Button>Register</Button>
                     </div>

@@ -3,6 +3,11 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import Button from "../../components/button/Button";
 import './login.less';
+import EmailInput from "../../components/InputFields/EmailInput/EmailInput";
+import PasswordInput from "../../components/InputFields/PasswordInput/PasswordInput";
+import '../../components/InputFields/EmailInput/EmailInput.less';
+import '../../components/InputFields/PasswordInput/PasswordInput.less';
+ 
 
 const Login = ({ setLoginUser }) => {
     const history = useNavigate();
@@ -42,12 +47,8 @@ const Login = ({ setLoginUser }) => {
             <div className="login-heading">Login To Your Account</div>
             <div className="login-form">
                 <form autoComplete="off" onSubmit={login}>
-                    <div className="input-field">
-                        <input type="email" name="email" value={user.email} onChange={handleChange} placeholder="Your email" />
-                    </div>
-                    <div className="input-field">
-                        <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Your password" />
-                    </div>
+                <EmailInput value={user.email} handleChange={handleChange} />
+                <PasswordInput value={user.password} handleChange={handleChange} />
                     <div className="input-field">
                         <Button>Login</Button>
                     </div>
