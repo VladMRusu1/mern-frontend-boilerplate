@@ -6,7 +6,10 @@ import './register.less';
 import EmailInput from "../../components/InputFields/EmailInput/EmailInput";
 import PasswordInput from "../../components/InputFields/PasswordInput/PasswordInput";
 import UsernameInput from '../../components/InputFields/UserNameInput/UserNameInput';
+import AxiosRequest from '../../components/AxiosPostRequest';
 import '../../components/InputFields/EmailInput/EmailInput.less';
+import '../../components/InputFields/PasswordInput/PasswordInput.less';
+ 
 
 const Register = () => {
     const [user, setUser] = useState({
@@ -30,9 +33,7 @@ const Register = () => {
             alert("Please fill in all fields.");
             return;
         }
-        axios.post("http://localhost:6969/Register", user)
-            .then(res => console.log(res))
-            .catch(error => console.error(error));
+        return <AxiosRequest url="http://localhost:5173/Login" data={user} />;
     };
 
     return (

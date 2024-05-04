@@ -5,6 +5,7 @@ import Button from "../../components/button/Button";
 import './login.less';
 import EmailInput from "../../components/InputFields/EmailInput/EmailInput";
 import PasswordInput from "../../components/InputFields/PasswordInput/PasswordInput";
+import AxiosRequest from '../../components/AxiosPostRequest';
 import '../../components/InputFields/EmailInput/EmailInput.less';
 import '../../components/InputFields/PasswordInput/PasswordInput.less';
  
@@ -26,20 +27,13 @@ const Login = ({ setLoginUser }) => {
 
     const login = (e) => {
         e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
+        const {email, password } = user;
         console.log(email, password);
         if (!email || !password) {
             alert("Please fill in both email and password fields.");
             return;
         }
-        axios.post("http://localhost:5173/Login", { email, password })
-            .then(res => {
-                alert(res.data.message);
-                setLoginUser(res.data.user);
-                history("/");
-            })
-            .catch(error => console.error(error));
+        return <AxiosRequest url="http://localhost:5173/Login" data={user} />;
     };
     
     return (
